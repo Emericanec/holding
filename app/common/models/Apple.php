@@ -10,6 +10,7 @@ use yii\db\Expression;
 
 /**
  * This is the model class for table "Apple".
+ * по хорошему делать некий AppleRepository и там делать методы eat, fallToGround и eaten
  *
  * @property int         $id
  * @property string      $color
@@ -69,6 +70,10 @@ class Apple extends \yii\db\ActiveRecord {
   }
 
   public function fallToGround(): bool {
+    if ($this->status === self::STATUS_DROPPED) {
+      return true;
+    }
+
     $this->drop_at = new Expression('NOW()');
     $this->status  = self::STATUS_DROPPED;
 
