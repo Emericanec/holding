@@ -5,7 +5,6 @@ INSTALL
 ```bash
 cd app
 ./yii init
-./yii migrate
 ```
 
 2) change 'db' config in app/common/config/main-local.php:
