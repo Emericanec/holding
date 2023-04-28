@@ -81,6 +81,7 @@ class AppleController extends Controller {
     $model = $this->findModel($id);
 
     if ($this->request->isPost && $this->request->post('percent')) {
+      // todo обработка наших exception и нормальное отображение ошибок
       $model->eat((int)$this->request->post('percent'));
       return $this->redirect(['apple/index']);
     }
